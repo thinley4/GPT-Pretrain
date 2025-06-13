@@ -13,6 +13,25 @@ This project includes:
 3. Text generation with temperature control and top-k sampling
 4. A web interface using Chainlit for interactive text generation
 
+## Training Results
+
+### Loss Progression During Training
+
+![Training and Validation Loss](loss-plot.jpg)
+
+The plot above shows the training and validation loss throughout the model training process. The x-axis represents both epochs and tokens seen, while the y-axis shows the cross-entropy loss. Lower loss values indicate better performance. As training progresses, the model gradually learns to predict the next token in the story more accurately, resulting in decreasing loss values.
+
+### Temperature Scaling Effect
+
+![Effect of Temperature on Token Probabilities](temperature.jpg)
+
+This plot demonstrates how temperature scaling affects token probability distributions:
+- **Low temperature (0.1)**: Creates a sharper distribution where the model consistently selects the most likely tokens, resulting in more deterministic but potentially repetitive text
+- **Medium temperature (1.0)**: Provides a balanced distribution that follows the model's learned probabilities
+- **High temperature (5.0)**: Creates a more uniform distribution, increasing randomness and diversity in generated text but potentially reducing coherence
+
+Temperature scaling is a key technique implemented in the project for controlling the creativity versus coherence tradeoff in text generation.
+
 ## Project Structure
 
 - `pretrain.ipynb`: Jupyter notebook that contains the model training code and detailed explanations
